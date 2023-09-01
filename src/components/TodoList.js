@@ -34,6 +34,7 @@ const ToDoList = () => {
 
   return (
     <div className="todo-list">
+      <h2>Todo List</h2>
       {tasks.map((task, index) => (
         <div className="todo">
           <span
