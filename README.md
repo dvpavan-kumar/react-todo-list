@@ -1,7 +1,8 @@
 # Simple React To-Do App
 
 A basic To-Do application built using React.
-[live]:dvpavan-kumar.github.io/react-todo-list/
+
+live:[dvpavan-kumar.github.io/react-todo-list/]
 
 ## Getting Started
 
