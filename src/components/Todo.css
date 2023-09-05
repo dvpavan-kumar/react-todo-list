@@ -90,10 +90,10 @@ input {
 }
 
 form {
-  border-top: 1px solid;
+  border-bottom: 1px solid;
   display: flex;
-  padding-top: 10px;
-  margin-top: 10px
+  padding-bottom: 10px;
+  margin-bottom: 10px
 }
 
 form button {
@@ -104,4 +104,9 @@ form button {
   border-left: 1px solid #ccc;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   padding: 0 15px;
+}
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; 
 }

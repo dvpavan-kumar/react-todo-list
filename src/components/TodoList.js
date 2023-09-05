@@ -1,57 +1,61 @@
-import React, { useState } from "react";
-import AddTaskForm from "./AddTaskForm";
+import React , { useState }from 'react';
+import { CiEdit, CiTrash } from 'react-icons/ci';
+import { ACTIONS } from "./Actions";
 import "./Todo.css";
 
-const ToDoList = () => {
-  const [tasks, setTasks] = useState([
-    {
-      text: "Like",
-      isCompleted: false,
-    },
-    {
-      text: "Comment",
-      isCompleted: false,
-    },
-    {
-      text: "Subscribe",
-      isCompleted: false,
-    },
-  ]);
 
-  const addTask = (text) => setTasks([...tasks, { text }]);
+export default function TodoList({ todo, dispatch }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState(todo.name);
 
-  const toggleTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].isCompleted = !newTasks[index].isCompleted;
-    setTasks(newTasks);
+  const handleEditClick = () => {
+    setIsEditing(true);
   };
 
-  const removeTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks.splice(index, 1);
-    setTasks(newTasks);
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditedName(todo.name);
+  };
+
+  const handleSaveEdit = () => {
+    dispatch({
+      type: ACTIONS.EDIT_TODO,
+      payload: { id: todo.id, name: editedName },
+    });
+    setIsEditing(false);
   };
 
   return (
-    <div className="todo-list">
-      <h2>Todo List</h2>
-      {tasks.map((task, index) => (
-        <div className="todo">
+    <div className="todo">
+      {isEditing ? (
+        <>
+          <input
+            type="text"
+            value={editedName}
+            onChange={(e) => setEditedName(e.target.value)}
+          />
+          <button onClick={handleSaveEdit}>Save</button>
+          <button onClick={handleCancelEdit}>Cancel</button>
+        </>
+      ) : (
+        <>
           <span
-            onClick={() => toggleTask(index)}
-            className={
-              task.isCompleted ? "todo-text todo-completed" : "todo-text"
-            }
+            className={todo.Complete ? "todo-text todo-completed" : "todo-text"}
           >
-            {task.text}
+            {todo.name}
           </span>
-          <button onClick={() => removeTask(index)}>
-            <i class="fas fa-trash-alt">Delete</i>
-          </button>
-        </div>
-      ))}
-      <AddTaskForm addTask={addTask} />
+          <div className="icon-container">
+            <button onClick={handleEditClick}><CiEdit/></button>
+            <button
+              onClick={() => {
+                dispatch({ type: ACTIONS.DELETE_TODO, payload: { id: todo.id } });
+              }}
+            >
+              <CiTrash/>
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
-};
-export default ToDoList;
+}
