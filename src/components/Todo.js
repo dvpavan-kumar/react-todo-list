@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import {TbPyramidPlus} from 'react-icons/tb'
+import { TbPyramidPlus } from 'react-icons/tb'
 import Todo from "./TodoList";
 import { ACTIONS } from "./Actions";
 import reducer from "./Reducer";
@@ -40,11 +40,11 @@ function TodoL() {
             value={name}
             placeholder="Enter a title for this task…"
             required
-            autoFocus  
+            autoFocus
             onChange={(e) => setName(e.target.value)}
           />
           <button type="submit" className="submit-button">
-          <TbPyramidPlus/>
+            <TbPyramidPlus />
           </button>
         </form>
         {todos.map((todo) => {

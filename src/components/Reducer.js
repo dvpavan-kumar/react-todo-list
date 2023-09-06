@@ -27,27 +27,27 @@ export default function reducer(todos, action) {
         }
         return todo;
       });
-      
-      case ACTIONS.EDIT_TODO:
-        return todos.map((t) => {
-          if (t.id === action.payload.id) {
-            return {
-              ...t,
-              name: action.payload.name,
-              isEditing: false,
-            };
-          }
-          return t;
-        });
-      
-      case ACTIONS.CANCEL_EDIT_TODO:
-        return todos.map((t) => {
-          if (t.id === action.payload.id) {
-            return { ...t, isEditing: false };
-          }
-          return t;
-        });
-      
+
+    case ACTIONS.EDIT_TODO:
+      return todos.map((t) => {
+        if (t.id === action.payload.id) {
+          return {
+            ...t,
+            name: action.payload.name,
+            isEditing: false,
+          };
+        }
+        return t;
+      });
+
+    case ACTIONS.CANCEL_EDIT_TODO:
+      return todos.map((t) => {
+        if (t.id === action.payload.id) {
+          return { ...t, isEditing: false };
+        }
+        return t;
+      });
+
     default:
       return todos;
   }

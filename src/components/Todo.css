@@ -10,10 +10,9 @@ body {
   margin: 0;
   font-size: 2em;
   box-sizing: border-box;
-  background: #f2f2f2; /* Change the background color to a modern style */
-  color: #333; /* Change the text color to a darker shade */
+  background: #f2f2f2;
+  color: #333;
   background: linear-gradient(45deg, #2980b9, #6dd5fa, #a3dcf1);
-
 }
 
 html {
@@ -62,8 +61,8 @@ h1 {
 
 .todo-completed {
   cursor: pointer;
-  text-decoration:#03f7ba line-through;
-  color: #adadad; 
+  text-decoration: #03f7ba line-through;
+  color: #adadad;
   transition: text-decoration 0.6s ease, color 0.5s ease;
 }
 
@@ -89,7 +88,7 @@ input {
   flex: 1;
   border-radius: 4px;
 }
-.inner-input{
+.inner-input {
   background: linear-gradient(45deg, #ffffff, #89d1eb);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   padding: 10px 20px;
@@ -118,9 +117,9 @@ form {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   padding: 0 20px;
 }
-.submit-button:hover{
-  color:#03f7ba;
-  background:#000 ;
+.submit-button:hover {
+  color: #03f7ba;
+  background: #000;
 }
 .icon-container {
   display: flex;
@@ -143,17 +142,15 @@ form {
   transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-
 .action-button:not(:hover) {
   color: #333;
 }
 
-
 .action-button:hover {
   background-color: #00d9ff;
-  border-radius: 50%; 
-  color: white; 
-  transform: scale(1.05); 
+  border-radius: 50%;
+  color: white;
+  transform: scale(1.05);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -163,13 +160,12 @@ form {
   justify-content: center;
 }
 
-
 @media (max-width: 380px) {
   body {
     font-size: 2em;
   }
 
   .todo-list {
-    width:100%;
+    width: 100%;
   }
 }
