@@ -27,13 +27,6 @@ export default function reducer(todos, action) {
         }
         return todo;
       });
-      case ACTIONS.TOGGLE_EDIT_TODO:
-        return todos.map((t) => {
-          if (t.id === action.payload.id) {
-            return { ...t, isEditing: !t.isEditing };
-          }
-          return t;
-        });
       
       case ACTIONS.EDIT_TODO:
         return todos.map((t) => {

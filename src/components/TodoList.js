@@ -1,7 +1,9 @@
 import React , { useState }from 'react';
-import { CiEdit, CiTrash } from 'react-icons/ci';
+import { AiTwotoneEdit } from 'react-icons/ai';
+import { PiTrashSimpleFill } from 'react-icons/pi';
+import { MdCancel} from 'react-icons/md';
+import { TiTick} from 'react-icons/ti';
 import { ACTIONS } from "./Actions";
-import "./Todo.css";
 
 
 export default function TodoList({ todo, dispatch }) {
@@ -24,6 +26,13 @@ export default function TodoList({ todo, dispatch }) {
     });
     setIsEditing(false);
   };
+  const handleTodoClick=()=>{
+    dispatch({
+      type: ACTIONS.TOGGLE_TODO,
+      payload: { id: todo.id },
+    });
+
+  }
 
   return (
     <div className="todo">
@@ -32,26 +41,31 @@ export default function TodoList({ todo, dispatch }) {
           <input
             type="text"
             value={editedName}
+            autoFocus  
+            required
+            className='inner-input'
             onChange={(e) => setEditedName(e.target.value)}
           />
-          <button onClick={handleSaveEdit}>Save</button>
-          <button onClick={handleCancelEdit}>Cancel</button>
+<button className="action-button" onClick={handleSaveEdit}><TiTick /></button>
+<button className="action-button" onClick={handleCancelEdit}><MdCancel /></button>
+
         </>
       ) : (
         <>
           <span
-            className={todo.Complete ? "todo-text todo-completed" : "todo-text"}
+            className={todo.complete ? "todo-completed" : "todo-text"}
+            onClick={handleTodoClick}
           >
             {todo.name}
           </span>
           <div className="icon-container">
-            <button onClick={handleEditClick}><CiEdit/></button>
-            <button
+            <button className="action-button" onClick={handleEditClick}><AiTwotoneEdit/></button>
+            <button className="action-button"
               onClick={() => {
                 dispatch({ type: ACTIONS.DELETE_TODO, payload: { id: todo.id } });
               }}
             >
-              <CiTrash/>
+              <PiTrashSimpleFill/>
             </button>
           </div>
         </>

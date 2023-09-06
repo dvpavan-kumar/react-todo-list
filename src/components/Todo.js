@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+import {TbPyramidPlus} from 'react-icons/tb'
 import Todo from "./TodoList";
 import { ACTIONS } from "./Actions";
 import reducer from "./Reducer";
@@ -9,17 +10,17 @@ function TodoL() {
     {
       id: 1,
       name: "Like",
-      Complete: false,
+      complete: false,
     },
     {
       id: 2,
       name: "Comment",
-      Complete: false,
+      complete: false,
     },
     {
       id: 3,
       name: "Subscribe",
-      Complete: false,
+      complete: false,
     },
   ]);
   const [name, setName] = useState("");
@@ -38,10 +39,12 @@ function TodoL() {
             type="text"
             value={name}
             placeholder="Enter a title for this task…"
+            required
+            autoFocus  
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit">
-            <i className="fas fa-plus">Add</i>
+          <button type="submit" className="submit-button">
+          <TbPyramidPlus/>
           </button>
         </form>
         {todos.map((todo) => {
