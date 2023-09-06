@@ -1,6 +1,6 @@
 # Simple React To-Do App
 
-A basic To-Do application built using React useRef Hook.
+A basic To-Do application built using React useReducer Hook.
 
 live:[dvpavan-kumar.github.io/react-todo-list/]
 
